@@ -1,1 +1,13 @@
+print("Bienvenido al sistema de gestión de diplomados online")
+print("SGA-DO: SISTEMA DIPLOMADOSONLINE")
+print("1.Registrar Alumno")
+print("2.Registrar Profesor")
+print("3.Registrar Notas a un Alumno")
+print("4.Deshacer Ultimo Registro de Notas")
+print("5.Generar Cola de Certificados")
+print("6.Mostrar Reporte General")
+print("7.Salir")
+opcion_seleccionada = int(input("Seleccione una opción (1-7): "))
+print(f"Ha seleccionado la opción {opcion_seleccionada}")
+
 

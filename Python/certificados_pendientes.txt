@@ -1,0 +1,27 @@
+=========================================
+REPORTE DE CERTIFICADOS PENDIENTES
+=========================================
+Total de graduandos en cola: 4
+
+1. [567] David Martinez
+   - Programa: Diplomado
+   - Promedio Final: 16.0
+   - Estatus: APROBADO (Cumple promedio >= 14)
+
+2. [234] Pedro Sanchez
+   - Programa: Curso
+   - Promedio Final: 15.6
+   - Estatus: APROBADO (Cumple promedio >= 10)
+
+3. [456] Gabriel Devia
+   - Programa: Diplomado
+   - Promedio Final: 17.3
+   - Estatus: APROBADO (Cumple promedio >= 14)
+
+4. [678] Luis Rodriguez
+   - Programa: Bootcamp
+   - Promedio Final: 17.0
+   - Estatus: APROBADO (Cumple regla de ninguna nota < 14)
+
+=========================================
+* Fin del reporte - Generado por SGA-DO *

@@ -1,0 +1,5 @@
+567,David Martinez,Dmartinez12@gmail.com,Diplomado,15,17,16
+234,Pedro Sanchez,Ssanchez@gmail.com,Curso,17,14,16
+598,Manuel,ManuelP@gmail.com,Bootcamp,13,17,19
+456,Gabriel Devia,Gdevia@gmail.com,Diplomado,17,15,20
+678,Luis Rodriguez,Lrodruiguez@gmail.com,Bootcamp,14,17,20

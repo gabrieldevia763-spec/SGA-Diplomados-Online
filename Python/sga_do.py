@@ -301,6 +301,9 @@ def registrar_nota(alumnos, pila):
             if nota <= 0:
                 print("Error: La nota debe ser mayor que 0.")
                 continue
+            if nota < 1 or nota > 20:
+                print("Error: La nota debe estar entre 1 y 20.")
+                continue
             break
         alumno.agregar_nota(nota)
         guardar_alumnos(alumnos)  # se guarda nota por nota 

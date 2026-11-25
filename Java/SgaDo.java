@@ -189,6 +189,84 @@ public class SgaDo {
     
     static class EntradaFinalizada extends RuntimeException {}
 
+    // ---------- Ubicacion de la carpeta del codigo ----------
+
+    /** True si la carpeta contiene SgaDo.java. */
+    static boolean contieneFuente(Path carpeta) {
+        return carpeta != null && Files.isRegularFile(carpeta.resolve(NOMBRE_FUENTE));
+    }
+
+    /** Evita recorrer carpetas pesadas o irrelevantes al buscar SgaDo.java. */
+    static boolean carpetaIgnorada(Path p) {
+        Path nombre = p.getFileName();
+        if (nombre == null) return false;
+        String n = nombre.toString();
+        return n.startsWith(".") || n.equals("node_modules");
+    }
+
+    /** Busca SgaDo.java hacia abajo desde 'inicio' (hasta 'profundidad' niveles). */
+    static Optional<Path> buscarHaciaAbajo(Path inicio, int profundidad) {
+        if (inicio == null || !Files.isDirectory(inicio)) return Optional.empty();
+        try (Stream<Path> s = Files.walk(inicio, profundidad)) {
+            return s.filter(p -> p.getFileName() != null
+                            && p.getFileName().toString().equals(NOMBRE_FUENTE)
+                            && Files.isRegularFile(p))
+                    .filter(p -> {
+                        // descarta resultados dentro de carpetas ocultas / node_modules
+                        for (Path q = p.getParent(); q != null && !q.equals(inicio); q = q.getParent()) {
+                            if (carpetaIgnorada(q)) return false;
+                        }
+                        return true;
+                    })
+                    .min((a, b) -> Integer.compare(a.getNameCount(), b.getNameCount()))
+                    .map(Path::getParent);
+        } catch (IOException | UncheckedIOException e) {
+            return Optional.empty();
+        }
+    }
+
+    /**
+     * Devuelve la carpeta donde esta SgaDo.java. Orden de busqueda:
+     *  1. Carpeta del .class / .jar (si ahi esta el .java).
+     *  2. Directorio actual (si ahi esta el .java).
+     *  3. Busqueda hacia abajo desde el directorio actual.
+     *  4. Busqueda desde la carpeta del .class y sus padres cercanos.
+     *  5. Si nada funciona, la carpeta del .class o el directorio actual.
+     */
+    static Path carpetaDelCodigo() {
+        Path cwd = Paths.get(System.getProperty("user.dir")).toAbsolutePath();
+
+        Path carpetaClase = null;
+        try {
+            Path ub = Paths.get(SgaDo.class.getProtectionDomain()
+                    .getCodeSource().getLocation().toURI()).toAbsolutePath();
+            carpetaClase = Files.isDirectory(ub) ? ub : ub.getParent();
+        } catch (Exception e) {
+            // sin ubicacion de clase (por ejemplo, "java SgaDo.java"): se usa el directorio actual
+        }
+
+        // 1 y 2: coincidencias directas
+        if (contieneFuente(carpetaClase)) return carpetaClase;
+        if (contieneFuente(cwd)) return cwd;
+
+        // 3: buscar hacia abajo desde el directorio actual
+        Optional<Path> abajo = buscarHaciaAbajo(cwd, 6);
+        if (abajo.isPresent()) return abajo.get();
+
+        // 4: buscar desde la carpeta del .class y sus padres cercanos
+        Path p = carpetaClase;
+        for (int i = 0; i < 3 && p != null; i++) {
+            Optional<Path> r = buscarHaciaAbajo(p, 4);
+            if (r.isPresent()) return r.get();
+            p = p.getParent();
+        }
+
+        // 5: ultimo recurso
+        return carpetaClase != null ? carpetaClase : cwd;
+    }
+
+ 
+
     
 
     // ---------- Utilidades ----------

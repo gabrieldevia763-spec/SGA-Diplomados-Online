@@ -1,7 +1,7 @@
 =========================================
 REPORTE DE CERTIFICADOS PENDIENTES
 =========================================
-Total de graduandos en cola: 2
+Total de graduandos en cola: 3
 
 1. [234] Edward Moreno
    - Programa: Bootcamp
@@ -12,6 +12,11 @@ Total de graduandos en cola: 2
    - Programa: Curso
    - Promedio Final: 14.6
    - Estatus: APROBADO (Cumple promedio >= 10)
+
+3. [678] Abraham Martinez
+   - Programa: Diplomado
+   - Promedio Final: 15.0
+   - Estatus: APROBADO (Cumple promedio >= 14)
 
 =========================================
 * Fin del reporte - Generado por SGA-DO *

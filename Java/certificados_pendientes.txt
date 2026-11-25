@@ -1,0 +1,17 @@
+=========================================
+REPORTE DE CERTIFICADOS PENDIENTES
+=========================================
+Total de graduandos en cola: 2
+
+1. [234] Edward Moreno
+   - Programa: Bootcamp
+   - Promedio Final: 16.0
+   - Estatus: APROBADO (Cumple regla de ninguna nota < 14)
+
+2. [123] Enrique Farias
+   - Programa: Curso
+   - Promedio Final: 14.6
+   - Estatus: APROBADO (Cumple promedio >= 10)
+
+=========================================
+* Fin del reporte - Generado por SGA-DO *

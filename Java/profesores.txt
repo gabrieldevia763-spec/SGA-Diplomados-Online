@@ -1,0 +1,3 @@
+345,Luis Rodriguez,Lrodriguez@gmail.com,Programacion,C++
+256,Miguel Hernandez,Mhernandez@gmail.com,Programacion,C++
+568,Manuel Medina,Mmedina@gmail.com,Ingenieria,Mecanica

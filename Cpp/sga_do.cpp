@@ -1,5 +1,5 @@
 // SGA-DO: Sistema DiplomadosOnline //
-// Compilar:  g++ -std=c++17 -Wall -Wextra -o sga_do sga_do.cpp
+
 
 #include <algorithm>
 #include <cctype>
@@ -33,7 +33,7 @@
 
 namespace fs = std::filesystem;
 
-// Rutas de los archivos (se completan en main con la carpeta del ejecutable)
+// Rutas de los archivos 
 std::string ARCHIVO_ALUMNOS = "alumnos.txt";
 std::string ARCHIVO_PROFESORES = "profesores.txt";
 std::string ARCHIVO_CERTIFICADOS = "certificados_pendientes.txt";
@@ -41,7 +41,7 @@ std::string ARCHIVO_CERTIFICADOS = "certificados_pendientes.txt";
 constexpr std::size_t MAX_NOTAS = 3;
 const std::string MSG_NUMERICO = "Error: Ingrese un valor numerico valido";
 
-// Se lanza cuando se cierra la entrada (equivale a EOFError)
+// Se lanza cuando se cierra la entrada 
 struct FinDeEntrada {};
 
 // ---------------------------------------------------------------------------
@@ -83,7 +83,7 @@ std::vector<std::string> dividir(const std::string& linea) {
     }
 }
 
-// Convierte TODO el texto a numero; rechaza "12abc", hexadecimales, nan e inf
+// Convierte TODO el texto a numero
 std::optional<double> a_numero(const std::string& texto) {
     const std::string t = recortar(texto);
     if (t.empty() || t.find_first_of("xX") != std::string::npos)
@@ -102,7 +102,7 @@ std::string fmt_g(double valor) {
     return os.str();
 }
 
-// Promedio truncado a 1 decimal (13.67 -> 13.6), como en el PDF.
+// Promedio parcial a 1 decimal (13.67 -> 13.6)
 std::string fmt_prom(double valor) {
     std::ostringstream os;
     os << std::fixed << std::setprecision(1)
@@ -401,7 +401,7 @@ std::vector<Profesor> cargar_profesores() {
 // Ingreso de datos
 // ---------------------------------------------------------------------------
 
-// Pide un texto no vacio; las comas se eliminan (separador del .txt).
+// Pide un texto no vacio; las comas se eliminan.
 std::string pedir_texto(const std::string& mensaje) {
     while (true) {
         std::string valor = leer_linea(mensaje);
@@ -660,7 +660,7 @@ int main(int argc, char* argv[]) {
 
         auto alumnos = cargar_alumnos();
         auto profesores = cargar_profesores();
-        std::stack<std::string> pila_notas;  // Pila LIFO para "deshacer"
+        std::stack<std::string> pila_notas;  // Pila LIFO para deshacer
 
         while (true) {
             std::cout << MENU << "\n";
@@ -693,7 +693,7 @@ int main(int argc, char* argv[]) {
                     std::cout << "Error: Seleccione una opcion entre 1 y 7.\n";
                 }
             } catch (const std::runtime_error& e) {
-                // Incluye fs::filesystem_error (equivale a OSError)
+                
                 std::cout << "Error de archivo: " << e.what() << "\n";
             }
         }

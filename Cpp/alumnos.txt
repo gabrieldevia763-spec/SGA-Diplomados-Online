@@ -1,0 +1,6 @@
+345,Gabriel Devia,Gdevia@gmail.com,Bootcamp,15,16,18
+456,Luis Rodriguez,LR23@gmail.com,Diplomado,11,14,14
+123,Martin Quijada,MQ@gmail.com,Curso,14,11,15
+657,Andrea Botero,AB@gmail.com,Bootcamp,13,16,18
+124,Emmnuel Medina,EM@gmail.com,Curso,12,16,17
+567,Enrique Farias,EF@gmail.com,Diplomado,15,16,18

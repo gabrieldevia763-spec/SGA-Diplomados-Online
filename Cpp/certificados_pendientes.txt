@@ -1,0 +1,27 @@
+=========================================
+REPORTE DE CERTIFICADOS PENDIENTES
+=========================================
+Total de graduandos en cola: 4
+
+1. [345] Gabriel Devia
+   - Programa: Bootcamp
+   - Promedio Final: 16.3
+   - Estatus: APROBADO (Cumple regla de ninguna nota < 14)
+
+2. [123] Martin Quijada
+   - Programa: Curso
+   - Promedio Final: 13.3
+   - Estatus: APROBADO (Cumple promedio >= 10)
+
+3. [124] Emmnuel Medina
+   - Programa: Curso
+   - Promedio Final: 15.0
+   - Estatus: APROBADO (Cumple promedio >= 10)
+
+4. [567] Enrique Farias
+   - Programa: Diplomado
+   - Promedio Final: 16.3
+   - Estatus: APROBADO (Cumple promedio >= 14)
+
+=========================================
+* Fin del reporte - Generado por SGA-DO *

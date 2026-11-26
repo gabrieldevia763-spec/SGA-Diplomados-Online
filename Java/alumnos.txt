@@ -3,3 +3,4 @@
 567,Gabriel Devia,Gdevia@gmail.com,Diplomado,12,14,15
 123,Enrique Farias,Efarias@gmail.com,Curso,12,17,15
 678,Abraham Martinez,Amartinez@gmail.com,Diplomado,14,16,15
+345,Gabriel Devia,Gdevia@gmail.com,Bootcamp,0,0,0
